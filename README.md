@@ -1,3 +1,5 @@
+<h1>通过修改config.json、.env、agents/base.py、pentest.py四个文件来使blacksmithAI支持deepseek api，增加了一个star.sh作为启动器，可以在启动时自由选择使用什么模型</h1>
+<h2>建议在使用docker安装完原版的blacksmithAI后，从这里复制这几个文件去替换原版的文件，然后使用bash star.sh即可使用</h2>h2>
 <div align="center">
 
 ![blacksmith_logo](blacksmith.png)
