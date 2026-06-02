@@ -1,11 +1,11 @@
 {
-    "defaults":{
-        "provider": "openrouter"
+    "defaults": {
+        "provider": "deepseek"
     },
-    "provider":{
+    "provider": {
         "openrouter": {
-            "base_url": "https://openrouter.ai/api/v1",
-            "default_model": "openrouter/hunter-alpha",
+            "base_url": "https://openrouter.ai/api/v1/chat/completions",
+            "default_model": "openai/gpt-oss-120b:free",
             "default_embedding_model": "openai/text-embedding-3-small",
             "default_model_config": {
                 "context_size": 200000,
@@ -17,9 +17,24 @@
                 "max_retries": 3
             }
         },
+        "deepseek": {
+            "base_url": "https://api.deepseek.com/v1",
+            "default_model": "deepseek-v4-flash",
+            "default_embedding_model": "",
+            "default_model_config": {
+                "context_size": 1000000,
+                "max_retries": 3,
+                "stream_usage": true,
+                "max_tokens": 8192
+            },
+            "default_embedding_model_config": {
+                "max_retries": 3,
+                "embedding_ctx_length": 8191
+            }
+        },
         "vllm": {
             "base_url": "http://localhost:8000/v1/chat/completions",
-            "default_model": "mistralai/devstral-2512:free",
+            "default_model": "openai/gpt-oss-120b:free",
             "default_embedding_model": "openai/text-embedding-3-small",
             "default_model_config": {
                 "context_size": 200000,
@@ -32,8 +47,7 @@
             }
         }
     },
-    "tools":{
-
+    "tools": {
         "reconnaissance": [
             "whois", "dnsutils (dig/nslookup)", "dnsrecon",
             "assetfinder", "findomain", "subfinder"
